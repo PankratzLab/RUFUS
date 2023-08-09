@@ -46,3 +46,5 @@ RUN set -ex; \
 	apt-get purge -y --auto-remove $BUILD_DEPS; \
 	apt-get clean; \
 	echo done
+
+CMD ["/bin/bash"]
