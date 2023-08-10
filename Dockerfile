@@ -50,7 +50,7 @@ RUN set -ex; \
 	make install; \
 	cd /; \
 	rm -rf htslib*; \
- 	wget https://github.com/arq5x/bedtools2/releases/download/v2.31.0/bedtools.static; \
+ 	wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary; \
 	mv bedtools.static.binary bedtools; \
 	chmod a+x bedtools; \
     	git clone git://github.com/pezmaster31/bamtools.git; \
