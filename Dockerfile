@@ -60,8 +60,8 @@ RUN set -ex; \
 	rm -rf htslib*; \
  # Get bedtools
  	wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary; \
-	mv bedtools.static.binary bedtools; \
-	chmod a+x bedtools; \
+	mv bedtools.static.binary /usr/local/bin/bedtools; \
+	chmod a+x /usr/local/bin/bedtools; \
  # Get bamtools
     	git clone https://github.com/pezmaster31/bamtools; \
      	cd bamtools; \
