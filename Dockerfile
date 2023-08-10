@@ -32,7 +32,7 @@ RUN set -ex; \
 RUN set -ex; \
 	BUILD_DEPS="cmake build-essential libncurses5-dev zlib1g-dev libbz2-dev libbz2-dev liblzma-dev"; \
 	apt-get install -y $BUILD_DEPS; \
- 	apt-get upgrade; \
+ 	apt-get upgrade -y; \
   	cmake --version; \
 # Get samtools and build it
 	cd /; \
