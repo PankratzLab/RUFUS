@@ -49,6 +49,7 @@ RUN set -ex; \
 	make install; \
 	cd /; \
 	rm -rf samtools*; \
+ # Get htslib for bgzip
  	wget https://github.com/samtools/htslib/releases/download/1.18/htslib-1.18.tar.bz2; \
 	tar -xjf htslib-1.18.tar.bz2; \
 	cd htslib*; \
@@ -57,16 +58,19 @@ RUN set -ex; \
 	make install; \
 	cd /; \
 	rm -rf htslib*; \
+ # Get bedtools
  	wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary; \
 	mv bedtools.static.binary bedtools; \
 	chmod a+x bedtools; \
+ # Get bamtools
     	git clone https://github.com/pezmaster31/bamtools; \
      	cd bamtools; \
       	mkdir build; \
   	cd build; \
   	cmake ..; \
+   	make; \
+    	make install; \
    	cd /; \
-    	rm -rf bamtools*; \
 # Cleanup
 	apt-get purge -y --auto-remove $BUILD_DEPS; \
 	apt-get clean; \
