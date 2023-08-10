@@ -32,6 +32,8 @@ RUN set -ex; \
 RUN set -ex; \
 	BUILD_DEPS="cmake build-essential libncurses5-dev zlib1g-dev libbz2-dev libbz2-dev liblzma-dev"; \
 	apt-get install -y $BUILD_DEPS; \
+ 	apt-get upgrade; \
+  	cmake --version; \
 # Get samtools and build it
 	cd /; \
 	wget https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2; \
