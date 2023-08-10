@@ -30,10 +30,15 @@ RUN set -ex; \
 
 # Setup samtools 1.11
 RUN set -ex; \
-	BUILD_DEPS="cmake build-essential libncurses5-dev zlib1g-dev libbz2-dev libbz2-dev liblzma-dev"; \
+	BUILD_DEPS="build-essential libncurses5-dev zlib1g-dev libbz2-dev libbz2-dev liblzma-dev"; \
 	apt-get install -y $BUILD_DEPS; \
- 	apt-get upgrade -y; \
-  	cmake --version; \
+ 	# Get newer version of cmake for building bamtools
+  	wget https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-Linux-x86_64.sh -q -O /tmp/cmake-install.sh; \
+	chmod u+x /tmp/cmake-install.sh; \
+        mkdir /opt/cmake-3.24.1; \
+        /tmp/cmake-install.sh --skip-license --prefix=/opt/cmake-3.24.1; \
+        rm /tmp/cmake-install.sh; \
+        ln -s /opt/cmake-3.24.1/bin/* /usr/local/bin; \
 # Get samtools and build it
 	cd /; \
 	wget https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2; \
