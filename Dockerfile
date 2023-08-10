@@ -42,6 +42,14 @@ RUN set -ex; \
 	make install; \
 	cd /; \
 	rm -rf samtools*; \
+ 	wget https://github.com/samtools/htslib/releases/download/1.18/htslib-1.18.tar.bz2; \
+	tar -xjf htslib-1.18.tar.bz2; \
+	cd htslib*; \
+	./configure; \
+	make; \
+	make install; \
+	cd /; \
+	rm -rf htslib*; \
 # Cleanup
 	apt-get purge -y --auto-remove $BUILD_DEPS; \
 	apt-get clean; \
