@@ -51,7 +51,7 @@ RUN set -ex; \
 	rm -rf samtools*; \
  # Get htslib for bgzip
  	wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2; \
-	tar -xjf htslib-1.18.tar.bz2; \
+	tar -xjf htslib-1.9.tar.bz2; \
 	cd htslib*; \
 	./configure; \
 	make; \
